@@ -1,6 +1,8 @@
 import datetime
 
 InitSum: int = 1000
+LoadFilePath = "Users\kiroa\source\repos\MoneyBook\MoneyBook\Data.txt"
+ExportPath = "Users\kiroa\source\repos\MoneyBook\MoneyBook\Export.txt"
 
 
 class Book:
@@ -20,10 +22,62 @@ class Book:
 List = [Book(0)]
 
 def Load():
-    pass
+    try:
+        with open(LoadFilePath,"x") as f:
+            pass
 
-def Save():
-    pass
+    except FileExistsError:
+        with open(LoadFilePath,"a") as f:
+            for line in f:
+                Current: Book = Book(0)
+                level: int = 0
+                num: str = ""
+                get: str = ""
+                paid: str = ""
+                sum: str = ""
+                for s in line:
+                    if s == ",":
+                        level += 1
+
+                    if level == 0:
+                        num += s
+                    if level == 1:
+                        Current.Num = int(num)
+                        Current.Date += s
+                    if level == 2:
+                        Current.Title += s
+                    if level == 3:
+                        get += s
+                    if level == 4:
+                        Current.Get = int(get)
+                        paid += s
+                    if level == 5:
+                        Current.Paid = int(paid)
+                        sum += s
+                    if level == 6:
+                        Current.Sum = int(sum)
+                        Current.Descrip += s
+
+                List += [Current]
+
+
+def ExportCSV():
+    for itm in List:
+        try:
+            with open(ExportPath,"x") as f:
+                pass
+        except FileExistsError:
+            with open(ExportPath,"a") as f:
+                line: str = ""
+                line += itm.Num + ","
+                line += itm.Date + ","
+                line += itm.Title + ","
+                line += str(itm.Get) + ","
+                line += str(itm.Paid) + ","
+                line += str(itm.Sum) + ","
+                line += itm.Descrip + "\n"
+                f.write(line)
+
 
 def Add(book: Book):
     global List
@@ -36,8 +90,13 @@ def Add(book: Book):
 
 while True:
     print("Continue?")
-    if(input() == "exit"):
+    cmd = input()
+    if(cmd == "exit"):
         break
+    if(cmd == "save"):
+        ExportCSV()
+    if(cmd == "load"):
+        pass
 
     print("Title: ")
     c: Book = Book(len(List))

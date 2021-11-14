@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MoneyBook", "MoneyBook\MoneyBook.pyproj", "{B8EAB1F4-AF7D-4FCC-8EED-248C23FADDBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8EAB1F4-AF7D-4FCC-8EED-248C23FADDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EAB1F4-AF7D-4FCC-8EED-248C23FADDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8818DE03-3552-43C3-AE89-163140E2FB15}
+	EndGlobalSection
+EndGlobal
